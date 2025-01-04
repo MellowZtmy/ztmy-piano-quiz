@@ -1,22 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ずとまよピアノクイズ</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>グランドピアノ風Audioプレーヤー</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(120deg, #cc0014, #7a1f28);
+        font-family: Arial, sans-serif;
+      }
+
+      .audio-player {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(145deg, #1c1c1c, #3a3a3a);
+        border-radius: 50%;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .audio-player::before {
+        content: '';
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.4),
+          rgba(255, 255, 255, 0.2)
+        );
+        z-index: -1;
+        animation: pulse 2s infinite;
+        visibility: hidden;
+      }
+
+      .audio-player.playing::before {
+        visibility: visible;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .play-pause-btn {
+        width: 80px;
+        height: 80px;
+        background: #fff; /* 背景を白に変更 */
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
+          0 0 10px rgba(255, 255, 255, 0.8); /* 白色の光 */
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+      .play-pause-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5),
+          0 0 15px rgba(255, 255, 255, 1); /* 明るい白色の光 */
+      }
+
+      .play-pause-btn::before {
+        content: '▶';
+        font-size: 32px;
+        color: #d4af37; /* 金色に変更 */
+      }
+
+      .play-pause-btn.paused::before {
+        content: '❚❚';
+        color: #d4af37; /* 一時停止マークも金色に */
+      }
+    </style>
   </head>
   <body>
-    <div id="confetti" class="confetti">
-      <canvas></canvas>
-      <h1 id="header" onclick="createDisplay(display.TOP)" class="center-text">
-        ずとまよピアノクイズ
-      </h1>
-      <div class="margin-bottom-100" id="display"></div>
+    <div class="audio-player">
+      <button class="play-pause-btn"></button>
+      <audio id="audio" src="audio/MILABO_ピアノ.mp3"></audio>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/confetti.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/main.js"></script>
+
+    <script>
+      const audio = document.getElementById('audio');
+      const playPauseBtn = document.querySelector('.play-pause-btn');
+      const audioPlayer = document.querySelector('.audio-player');
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.classList.add('paused');
+          audioPlayer.classList.add('playing');
+        } else {
+          audio.pause();
+          playPauseBtn.classList.remove('paused');
+          audioPlayer.classList.remove('playing');
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        playPauseBtn.classList.remove('paused');
+        audioPlayer.classList.remove('playing');
+      });
+    </script>
   </body>
 </html>
