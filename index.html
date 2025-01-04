@@ -13,6 +13,38 @@
         margin: 0;
         background: linear-gradient(120deg, #cc0014, #7a1f28);
         font-family: Arial, sans-serif;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 56px; /* フォントサイズを大きく */
+        font-weight: bold;
+        color: #fff;
+        background: linear-gradient(
+          145deg,
+          #ffcc00,
+          #ff9900
+        ); /* 金色のグラデーション */
+        margin: 30px 0;
+        padding: 15px 40px; /* 内側の余白を調整 */
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
+          0 0 15px rgba(255, 255, 255, 0.6); /* 複数のシャドウを追加 */
+        border-radius: 20px; /* 丸みをつける */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7),
+          0 0 25px rgba(255, 255, 255, 0.8); /* 輝く光の効果 */
+        animation: glowingText 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes glowingText {
+        0% {
+          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
+            0 0 15px rgba(255, 255, 255, 0.8);
+        }
+        100% {
+          text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8),
+            0 0 30px rgba(255, 255, 255, 1);
+        }
       }
 
       .audio-player {
@@ -61,7 +93,7 @@
       .play-pause-btn {
         width: 80px;
         height: 80px;
-        background: #fff; /* 背景を白に変更 */
+        background: #fff;
         border: none;
         border-radius: 50%;
         display: flex;
@@ -69,29 +101,30 @@
         align-items: center;
         cursor: pointer;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
-          0 0 10px rgba(255, 255, 255, 0.8); /* 白色の光 */
+          0 0 10px rgba(255, 255, 255, 0.8);
         transition: transform 0.2s ease, box-shadow 0.3s ease;
       }
 
       .play-pause-btn:hover {
         transform: scale(1.1);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5),
-          0 0 15px rgba(255, 255, 255, 1); /* 明るい白色の光 */
+          0 0 15px rgba(255, 255, 255, 1);
       }
 
       .play-pause-btn::before {
         content: '▶';
         font-size: 32px;
-        color: #d4af37; /* 金色に変更 */
+        color: #d4af37;
       }
 
       .play-pause-btn.paused::before {
         content: '❚❚';
-        color: #d4af37; /* 一時停止マークも金色に */
+        color: #d4af37;
       }
     </style>
   </head>
   <body>
+    <h1>ZUTOMAYO PIANO QUIZ</h1>
     <div class="audio-player">
       <button class="play-pause-btn"></button>
       <audio id="audio" src="audio/MILABO_ピアノ.mp3"></audio>
