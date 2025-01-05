@@ -6,8 +6,8 @@ body {
   margin: 0;
   background: linear-gradient(120deg, #cc0014, #7a1f28);
   font-family: Arial, sans-serif;
-  flex-direction: column;
   text-align: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -15,7 +15,6 @@ h1 {
   font-weight: bold;
   color: #fff;
   background: linear-gradient(145deg, #ffcc00, #ff9900);
-  margin: 30px 0;
   padding: 15px 40px;
   text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
     0 0 15px rgba(255, 255, 255, 0.6);
@@ -25,14 +24,17 @@ h1 {
 }
 
 @keyframes glowingText {
-  0% {
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
-      0 0 15px rgba(255, 255, 255, 0.8);
-  }
+  0%,
   100% {
     text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8),
       0 0 30px rgba(255, 255, 255, 1);
   }
+}
+
+.audio-player,
+.options {
+  width: 400px; /* 横幅を広げて統一 */
+  margin: 0 auto; /* センター揃え */
 }
 
 .audio-player {
@@ -40,32 +42,32 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 250px;
+  width: 300px; /* 音声プレイヤーの幅 */
+  height: 150px; /* 音声プレイヤーの高さ */
   background: linear-gradient(145deg, #1c1c1c, #3a3a3a);
-  border-radius: 50%;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+  padding: 0; /* 余白をなくす */
+  box-sizing: border-box; /* ボックスモデルを正確に計算 */
 }
 
 .audio-player::before {
   content: '';
   position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.2)
-  );
+  top: 0; /* プレイヤーの位置と揃える */
+  left: 0;
+  width: 100%; /* audio-player の幅に追従 */
+  height: 100%; /* audio-player の高さに追従 */
+  border-radius: 20px; /* audio-player と同じ丸み */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
   z-index: -1;
   animation: pulse 2s infinite;
-  visibility: hidden;
+  transform-origin: center; /* 拡大の起点を中央にする */
+  visibility: hidden; /* 再生時のみ表示 */
 }
 
 .audio-player.playing::before {
-  visibility: visible;
+  visibility: visible; /* 再生中にパルスを表示 */
 }
 
 @keyframes pulse {
@@ -74,59 +76,65 @@ h1 {
     opacity: 0.8;
   }
   100% {
-    transform: scale(1.5);
-    opacity: 0;
+    transform: scale(1.5); /* 拡大率 */
+    opacity: 0; /* 徐々に透明 */
   }
 }
 
-.play-pause-btn {
+button {
   width: 80px;
   height: 80px;
   background: #fff;
   border: none;
-  border-radius: 50%;
+  border-radius: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
     0 0 10px rgba(255, 255, 255, 0.8);
+  margin: 0 10px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.play-pause-btn:hover {
+button:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5),
     0 0 15px rgba(255, 255, 255, 1);
 }
 
-.play-pause-btn::before {
-  content: '▶';
+button::before {
   font-size: 32px;
   color: #d4af37;
 }
 
+.play-pause-btn::before {
+  content: '▶';
+}
+
 .play-pause-btn.paused::before {
   content: '❚❚';
-  color: #d4af37;
+}
+
+.stop-btn::before {
+  content: '⏹';
 }
 
 .options {
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
+  padding: 15px; /* パディング調整 */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .options button {
+  width: 100%;
   background: #ff9900;
   color: white;
-  border: none;
   padding: 10px;
   margin: 5px;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
   transition: background 0.3s;
 }

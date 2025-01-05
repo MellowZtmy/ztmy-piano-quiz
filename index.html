@@ -15,8 +15,10 @@
     <h1>ZUTOMAYO PIANO QUIZ</h1>
     <div class="audio-player">
       <button class="play-pause-btn"></button>
+      <button class="stop-btn"></button>
       <audio id="audio" src="audio/秒針を嚙む1.mp3"></audio>
     </div>
+
     <div class="options">
       <button>MILABO</button>
       <button>脳裏上のクラッカー</button>
@@ -43,6 +45,14 @@
       });
 
       audio.addEventListener('ended', () => {
+        playPauseBtn.classList.remove('paused');
+        audioPlayer.classList.remove('playing');
+      });
+      const stopBtn = document.querySelector('.stop-btn');
+
+      stopBtn.addEventListener('click', () => {
+        audio.pause();
+        audio.currentTime = 0; // 再生位置をリセット
         playPauseBtn.classList.remove('paused');
         audioPlayer.classList.remove('playing');
       });
