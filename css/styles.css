@@ -33,7 +33,7 @@ h1 {
 
 .audio-player,
 .options {
-  width: 400px; /* 横幅を広げて統一 */
+  width: 300px; /* 横幅を広げて統一 */
   margin: 0 auto; /* センター揃え */
 }
 
@@ -117,7 +117,7 @@ button::before {
 }
 
 .stop-btn::before {
-  content: '⏹';
+  content: '■';
 }
 
 .options {
