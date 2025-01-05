@@ -135,6 +135,9 @@ button::before {
   padding: 10px;
   margin: 5px;
   border-radius: 8px;
+  font-size: 18px; /* フォントサイズを拡大 */
+  font-weight: bold; /* 文字を太字に */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6); /* 文字にシャドウを追加 */
   font-size: 16px;
   transition: background 0.3s;
 }
