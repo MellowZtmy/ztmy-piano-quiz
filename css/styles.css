@@ -31,7 +31,6 @@ h1 {
   }
 }
 
-
 /* オーディオプレイヤーのスタイル */
 .audio-player,
 .options {
@@ -51,36 +50,6 @@ h1 {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   padding: 0; /* 余白をなくす */
   box-sizing: border-box; /* ボックスモデルを正確に計算 */
-}
-
-.audio-player::before {
-  content: '';
-  position: absolute;
-  top: 0; /* プレイヤーの位置と揃える */
-  left: 0;
-  width: 100%; /* audio-player の幅に追従 */
-  height: 100%; /* audio-player の高さに追従 */
-  border-radius: 20px; /* audio-player と同じ丸み */
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
-  z-index: -1;
-  animation: pulse 2s infinite;
-  transform-origin: center; /* 拡大の起点を中央にする */
-  visibility: hidden; /* 再生時のみ表示 */
-}
-
-.audio-player.playing::before {
-  visibility: visible; /* 再生中にパルスを表示 */
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.5); /* 拡大率 */
-    opacity: 0; /* 徐々に透明 */
-  }
 }
 
 /* 新しい進行状況バーのスタイル */
