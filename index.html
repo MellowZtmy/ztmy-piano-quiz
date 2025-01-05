@@ -25,7 +25,20 @@
       <button>脳裏上のクラッカー</button>
       <button>暗く黒く</button>
       <button>低血ボルト</button>
-      <button>秒針を嚙む</button>
+      <button id="showIframeBtn" class="show-iframe-btn">秒針を噛む</button>
+    </div>
+
+    <!-- iframe コンテナ（最初は非表示） -->
+    <div
+      class="card-iframe-container"
+      id="iframeContainer"
+      style="display: none"
+    >
+      <iframe
+        src="https://www.youtube.com/embed/?loop=1&amp;playlist=GJI4Gv7NbmE&t=59"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
     </div>
 
     <script>
@@ -62,6 +75,14 @@
       audio.addEventListener('timeupdate', () => {
         const progress = (audio.currentTime / audio.duration) * 100;
         progressBar.style.width = progress + '%';
+      });
+      // ボタンとiframeコンテナの要素を取得
+      const showIframeBtn = document.getElementById('showIframeBtn');
+      const iframeContainer = document.getElementById('iframeContainer');
+
+      // ボタンがクリックされたときにiframeを表示
+      showIframeBtn.addEventListener('click', () => {
+        iframeContainer.style.display = 'block'; // iframeを表示
       });
     </script>
   </body>
