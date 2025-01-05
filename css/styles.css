@@ -1,3 +1,4 @@
+/* 画面とタイトルのスタイル */
 body {
   justify-content: center;
   align-items: center;
@@ -30,6 +31,8 @@ h1 {
   }
 }
 
+
+/* オーディオプレイヤーのスタイル */
 .audio-player,
 .options {
   width: 300px; /* 横幅を広げて統一 */
@@ -78,6 +81,18 @@ h1 {
     transform: scale(1.5); /* 拡大率 */
     opacity: 0; /* 徐々に透明 */
   }
+}
+
+/* 新しい進行状況バーのスタイル */
+.audio-player .progress-bar {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: #ff9900;
+  border-radius: 5px;
+  transition: width 0.1s ease;
 }
 
 button {
