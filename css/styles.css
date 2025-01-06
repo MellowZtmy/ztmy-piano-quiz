@@ -131,9 +131,9 @@ button::before {
 
 /* iframe コンテナのスタイル */
 .card-iframe-container {
-  width: 320px;
+  width: 330px;
   height: 180px;
-  margin: 20px auto;
+  margin: 20px auto 100px;
   background-color: #000;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
