@@ -2,7 +2,6 @@
 body {
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   background: linear-gradient(120deg, #cc0014, #7a1f28);
   font-family: Arial, sans-serif;
@@ -132,8 +131,8 @@ button::before {
 
 /* iframe コンテナのスタイル */
 .card-iframe-container {
-  width: 80%;
-  height: 400px;
+  width: 320px;
+  height: 180px;
   margin: 20px auto;
   background-color: #000;
   border-radius: 10px;
