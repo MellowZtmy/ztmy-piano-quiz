@@ -90,11 +90,11 @@ button::before {
 }
 
 .options {
+  width: 340px; /* 横幅固定 */
   margin-top: 20px;
   background: rgba(35, 20, 52, 0.8);
   padding: 15px;
   border-radius: 10px;
-  width: 360px; /* 横幅固定 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(144, 104, 241, 0.5);
 }
 
@@ -118,9 +118,9 @@ button::before {
 
 /* iframeコンテナのスタイル */
 .card-iframe-container {
-  width: 320px; /* サイズを拡大 */
-  height: 180px; /* アスペクト比16:9 */
-  margin: 20px auto;
+  width: 340px; /* サイズを拡大 */
+  height: 186px; /* アスペクト比16:9 */
+  margin: 20px auto 100px;
   background-color: #220d3d;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(144, 104, 241, 0.5);
