@@ -3,62 +3,52 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background: linear-gradient(120deg, #cc0014, #7a1f28);
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364); /* 夜をイメージしたグラデーション */
   font-family: Arial, sans-serif;
   text-align: center;
+  display: flex; /* センター揃え */
   flex-direction: column;
+  color: #ffffff; /* テキストを白に設定 */
 }
 
 h1 {
   font-size: 40px;
   font-weight: bold;
   color: #fff;
-  background: linear-gradient(145deg, #ffcc00, #ff9900);
+  background: linear-gradient(145deg, #4e54c8, #8f94fb); /* 夜空のようなグラデーション */
   padding: 15px 40px;
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8),
-    0 0 15px rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7),
-    0 0 25px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(78, 84, 200, 0.8);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(78, 84, 200, 0.5);
   animation: glowingText 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes glowingText {
-  0%,
-  100% {
-    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8),
-      0 0 30px rgba(255, 255, 255, 1);
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(142, 156, 241, 0.8);
   }
 }
 
 /* オーディオプレイヤーのスタイル */
-.audio-player,
-.options {
-  width: 300px; /* 横幅を広げて統一 */
-  margin: 0 auto; /* センター揃え */
-}
-
 .audio-player {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* 中央揃え */
   align-items: center;
-  width: 300px; /* 音声プレイヤーの幅 */
-  height: 150px; /* 音声プレイヤーの高さ */
-  background: linear-gradient(145deg, #1c1c1c, #3a3a3a);
+  width: 300px;
+  height: 150px;
+  margin: 20px auto; /* センター配置 */
+  background: linear-gradient(145deg, #1c1c1c, #232526); /* 暗めの金属感を表現 */
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-  padding: 0; /* 余白をなくす */
-  box-sizing: border-box; /* ボックスモデルを正確に計算 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(78, 84, 200, 0.4);
 }
 
-/* 新しい進行状況バーのスタイル */
 .audio-player .progress-bar {
   position: absolute;
   bottom: 15px;
   left: 0;
   width: 0;
   height: 5px;
-  background: #ff9900;
+  background: #ffcc00; /* 夜空に目立つ星の色 */
   border-radius: 5px;
   transition: width 0.1s ease;
 }
@@ -66,25 +56,22 @@ h1 {
 button {
   width: 80px;
   height: 80px;
-  background: #fff;
+  background: linear-gradient(145deg, #333, #555); /* ダークモード調 */
   border: none;
   border-radius: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.2);
   margin: 0 10px;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5),
-    0 0 15px rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.4);
 }
-
 button::before {
   font-size: 32px;
   color: #d4af37;
@@ -104,39 +91,39 @@ button::before {
 
 .options {
   margin-top: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 15px; /* パディング調整 */
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 500px; /* 横幅固定 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(78, 84, 200, 0.5);
 }
 
 .options button {
   width: 100%;
-  background: #ff9900;
-  color: white;
+  background: #3e497a; /* 夜空をイメージしたブルー */
+  color: #fff;
   padding: 10px;
-  margin: 5px;
+  margin: 5px 0; /* ボタン間隔調整 */
   border-radius: 8px;
-  font-size: 18px; /* フォントサイズを拡大 */
-  font-weight: bold; /* 文字を太字に */
-  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6); /* 文字にシャドウを追加 */
-  font-size: 16px;
-  transition: background 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  transition: background 0.3s, transform 0.2s;
 }
 
 .options button:hover {
-  background: #ffcc00;
+  background: #536fd8; /* 夜空の変化を感じさせる */
+  transform: scale(1.05);
 }
 
-
-/* iframe コンテナのスタイル */
+/* iframeコンテナのスタイル */
 .card-iframe-container {
-  width: 330px;
-  height: 180px;
-  margin: 20px auto 100px;
+  width: 560px; /* サイズを拡大 */
+  height: 315px; /* アスペクト比16:9 */
+  margin: 20px auto;
   background-color: #000;
   border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(78, 84, 200, 0.5);
 }
 
 .card-iframe-container iframe {

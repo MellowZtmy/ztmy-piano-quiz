@@ -21,10 +21,10 @@
     </div>
 
     <div class="options">
-      <button>ハゼ馳せる果てるまで</button>
-      <button>脳裏上のクラッカー</button>
-      <button>低血ボルト</button>
-      <button id="showIframeBtn" class="show-iframe-btn">秒針を噛む</button>
+      <button class="quiz-btn">ハゼ馳せる果てるまで</button>
+      <button class="quiz-btn">脳裏上のクラッカー</button>
+      <button class="quiz-btn" data-correct="true">秒針を噛む</button>
+      <button class="quiz-btn">残機</button>
     </div>
 
     <!-- iframe コンテナ（最初は非表示） -->
@@ -40,49 +40,6 @@
       ></iframe>
     </div>
 
-    <script>
-      const audio = document.getElementById('audio');
-      const playPauseBtn = document.querySelector('.play-pause-btn');
-      const audioPlayer = document.querySelector('.audio-player');
-
-      playPauseBtn.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play();
-          playPauseBtn.classList.add('paused');
-          audioPlayer.classList.add('playing');
-        } else {
-          audio.pause();
-          playPauseBtn.classList.remove('paused');
-          audioPlayer.classList.remove('playing');
-        }
-      });
-
-      audio.addEventListener('ended', () => {
-        playPauseBtn.classList.remove('paused');
-        audioPlayer.classList.remove('playing');
-      });
-      const stopBtn = document.querySelector('.stop-btn');
-
-      stopBtn.addEventListener('click', () => {
-        audio.pause();
-        audio.currentTime = 0; // 再生位置をリセット
-        playPauseBtn.classList.remove('paused');
-        audioPlayer.classList.remove('playing');
-      });
-
-      const progressBar = document.querySelector('.audio-player .progress-bar');
-      audio.addEventListener('timeupdate', () => {
-        const progress = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = progress + '%';
-      });
-      // ボタンとiframeコンテナの要素を取得
-      const showIframeBtn = document.getElementById('showIframeBtn');
-      const iframeContainer = document.getElementById('iframeContainer');
-
-      // ボタンがクリックされたときにiframeを表示
-      showIframeBtn.addEventListener('click', () => {
-        iframeContainer.style.display = 'block'; // iframeを表示
-      });
-    </script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
